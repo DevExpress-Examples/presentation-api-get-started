@@ -74,7 +74,7 @@ This example creates a presentation with three slides and populates them with co
 
 ## Documentation
 
-- [Create Your First Presentation with DevExpress Presentation API Library](https://docs.devexpress.devx/OfficeFileAPI/405404/presentation-api/create-first-presentation)
+- [Create Your First Presentation with DevExpress Presentation API Library](https://docs.devexpress.com/OfficeFileAPI/405404/presentation-api/create-first-presentation)
 
 ## More Examples
 
