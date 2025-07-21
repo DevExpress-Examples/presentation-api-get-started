@@ -20,6 +20,9 @@ This example creates a presentation with three slides and populates them with co
 ### Slide #3
 ![slide 3](media/gs-resulting-slide3.png)
 
+> [!Important]  
+> The Universal Subscription or an additional Office File API Subscription is required to use this example in production code. For pricing information, please refer to the [DevExpress Subscription](https://www.devexpress.com/Subscriptions/) page. 
+
 ## Implementation Details
 
 * Use the `Presentation()` parameterless constructor to create a new presentation. 
