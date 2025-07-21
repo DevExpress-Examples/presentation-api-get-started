@@ -33,7 +33,7 @@ This example creates a presentation with three slides and populates them with co
     SlideMaster slideMaster = presentation.SlideMasters[0];
     ```
 
-* To create a slide, initialize `Slide` objects and add them to the `Presentation.Slides` collection. For each slide, specify the layout type in the `Slide` constructor parameters. In this example, slides get a predefined layout from a slide master. To obtain a layout from the `SlideMaster.Layouts`, you can call `Get` or `GetOrCreate` method.
+* To create a slide, initialize `Slide` objects and add them to the `Presentation.Slides` collection. For each slide, specify the layout type in the `Slide` constructor parameters. In this example, slides get a predefined layout from a slide master. To obtain a layout from the `SlideMaster.Layouts`, you can call the `Get` or `GetOrCreate` method.
 
     ```cs
     Slide slide1 = new Slide(slideMaster.Layouts.Get(SlideLayoutType.Title));
