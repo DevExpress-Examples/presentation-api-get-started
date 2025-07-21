@@ -41,7 +41,7 @@ This example creates a presentation with three slides and populates them with co
     presentation.Slides.Add(slide1);
     ```
 
-* Layouts adds placeholder shapes to slides. You can access placeholder shapes in `Slide.Shapes` collection to add desired content.
+* Layouts add placeholder shapes to slides. You can access placeholder shapes in the `Slide.Shapes` collection to add the desired content.
 
     ```cs
     Slide slide1 = new Slide(slideMaster.Layouts.Get(SlideLayoutType.Title));
