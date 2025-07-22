@@ -1,13 +1,10 @@
 <!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/1023545041/25.1.4%2B)
-[![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1300596)
-[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
-[![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
+Automatically generated badges
 <!-- default badges end -->
 
 # DevExpress Presentation API Library – Get Started 
 
-This example creates a presentation with three slides and populates them with content.
+This example creates a new presentation, adds three slides, and populates slides with content.
 
 ### Slide #1
 
@@ -19,6 +16,9 @@ This example creates a presentation with three slides and populates them with co
 
 ### Slide #3
 ![slide 3](media/gs-resulting-slide3.png)
+
+> [!Important]  
+> You need a license for the [DevExpress Office File API Subscription](https://www.devexpress.com/products/net/office-file-api/) or [DevExpress Universal Subscription](https://www.devexpress.com/subscriptions/universal.xml) to use our Office File API library in production code. For pricing information, refer to the following webpage: [DevExpress Subscriptions](https://www.devexpress.com/Subscriptions/). 
 
 ## Implementation Details
 
@@ -33,7 +33,7 @@ This example creates a presentation with three slides and populates them with co
     SlideMaster slideMaster = presentation.SlideMasters[0];
     ```
 
-* To create a slide, initialize `Slide` objects and add them to the `Presentation.Slides` collection. For each slide, specify the layout type in the `Slide` constructor parameters. In this example, slides get a predefined layout from a slide master. To obtain a layout from the `SlideMaster.Layouts`, you can call `Get` or `GetOrCreate` method.
+* To create a slide, initialize a `Slide` object and add it to the `Presentation.Slides` collection. For each slide, specify the layout type as a constructor parameter. In this example, slides use predefined layouts stored in the slide master. To obtain a layout from `SlideMaster.Layouts`, call the `Get` or `GetOrCreate` method.
 
     ```cs
     Slide slide1 = new Slide(slideMaster.Layouts.Get(SlideLayoutType.Title));
@@ -41,7 +41,7 @@ This example creates a presentation with three slides and populates them with co
     presentation.Slides.Add(slide1);
     ```
 
-* Layouts adds placeholder shapes to slides. You can access placeholder shapes in `Slide.Shapes` collection to add desired content.
+* Layouts add placeholder shapes to slides. Use the `Slide.Shapes` collection to access placeholder shapes and populate them with content.
 
     ```cs
     Slide slide1 = new Slide(slideMaster.Layouts.Get(SlideLayoutType.Title));
@@ -74,7 +74,7 @@ This example creates a presentation with three slides and populates them with co
 
 ## Documentation
 
-- [Create Your First Presentation with DevExpress Presentation API Library](https://docs.devexpress.devx/OfficeFileAPI/405404/presentation-api/create-first-presentation)
+- [Create Your First Presentation with DevExpress Presentation API Library](https://docs.devexpress.com/OfficeFileAPI/405404/presentation-api/create-first-presentation)
 
 ## More Examples
 
