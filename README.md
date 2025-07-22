@@ -7,7 +7,7 @@
 
 # DevExpress Presentation API Library – Get Started 
 
-This example creates a presentation with three slides and populates them with content.
+This example creates a new presentation, adds three slides, and populates slides with content.
 
 ### Slide #1
 
@@ -21,7 +21,7 @@ This example creates a presentation with three slides and populates them with co
 ![slide 3](media/gs-resulting-slide3.png)
 
 > [!Important]  
-> The Universal Subscription or an additional Office File API Subscription is required to use this example in production code. For pricing information, please refer to the [DevExpress Subscription](https://www.devexpress.com/Subscriptions/) page. 
+> You need a license for the [DevExpress Office File API Subscription](https://www.devexpress.com/products/net/office-file-api/) or [DevExpress Universal Subscription](https://www.devexpress.com/subscriptions/universal.xml) to use our Office File API library in production code. For pricing information, refer to the following webpage: [DevExpress Subscriptions](https://www.devexpress.com/Subscriptions/). 
 
 ## Implementation Details
 
@@ -36,7 +36,7 @@ This example creates a presentation with three slides and populates them with co
     SlideMaster slideMaster = presentation.SlideMasters[0];
     ```
 
-* To create a slide, initialize `Slide` objects and add them to the `Presentation.Slides` collection. For each slide, specify the layout type in the `Slide` constructor parameters. In this example, slides get a predefined layout from a slide master. To obtain a layout from the `SlideMaster.Layouts`, you can call the `Get` or `GetOrCreate` method.
+* To create a slide, initialize a `Slide` object and add it to the `Presentation.Slides` collection. For each slide, specify the layout type as a constructor parameter. In this example, slides use predefined layouts stored in the slide master. To obtain a layout from `SlideMaster.Layouts`, call the `Get` or `GetOrCreate` method.
 
     ```cs
     Slide slide1 = new Slide(slideMaster.Layouts.Get(SlideLayoutType.Title));
@@ -44,7 +44,7 @@ This example creates a presentation with three slides and populates them with co
     presentation.Slides.Add(slide1);
     ```
 
-* Layouts add placeholder shapes to slides. You can access placeholder shapes in the `Slide.Shapes` collection to add the desired content.
+* Layouts add placeholder shapes to slides. Use the `Slide.Shapes` collection to access placeholder shapes and populate them with content.
 
     ```cs
     Slide slide1 = new Slide(slideMaster.Layouts.Get(SlideLayoutType.Title));
