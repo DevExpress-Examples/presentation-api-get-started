@@ -47,17 +47,12 @@ This example creates a new presentation, adds three slides, and populates slides
 * Layouts add placeholder shapes to slides. Use the `Slide.Shapes` collection to access placeholder shapes and populate them with content.
 
     ```cs
-    Slide slide1 = new Slide(slideMaster.Layouts.Get(SlideLayoutType.Title));
     foreach (Shape shape in slide1.Shapes) {
         if (shape.PlaceholderSettings.Type is PlaceholderType.CenteredTitle) {
-            TextArea textArea = new TextArea();
-            textArea.Text = "Daily Testing Status Report";
-            shape.TextArea = textArea;
+            shape.TextArea = new TextArea("Daily Testing Status Report");
         }
         if (shape.PlaceholderSettings.Type is PlaceholderType.Subtitle) {
-            TextArea textArea = new TextArea();
-            textArea.Text = $"{DateTime.Now: dddd, MMMM d, yyyy}";
-            shape.TextArea = textArea;
+            shape.TextArea = new TextArea($"{DateTime.Now: dddd, MMMM d, yyyy}");
         }
     }
     ```
