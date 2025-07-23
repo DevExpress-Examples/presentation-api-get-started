@@ -16,14 +16,10 @@ public class Program {
         Slide slide1 = new Slide(slideMaster.Layouts.Get(SlideLayoutType.Title));
         foreach (Shape shape in slide1.Shapes) {
             if (shape.PlaceholderSettings.Type is PlaceholderType.CenteredTitle) {
-                TextArea textArea = new TextArea();
-                textArea.Text = "Daily Testing Status Report";
-                shape.TextArea = textArea;
+                shape.TextArea = new TextArea("Daily Testing Status Report");
             }
             if (shape.PlaceholderSettings.Type is PlaceholderType.Subtitle) {
-                TextArea textArea = new TextArea();
-                textArea.Text = $"{DateTime.Now: dddd, MMMM d, yyyy}";
-                shape.TextArea = textArea;
+                shape.TextArea = new TextArea($"{DateTime.Now: dddd, MMMM d, yyyy}");
             }
         }
         presentation.Slides.Add(slide1);
@@ -31,31 +27,16 @@ public class Program {
         Slide slide2 = new Slide(slideMaster.Layouts.GetOrCreate(SlideLayoutType.Object));
         foreach (Shape shape in slide2.Shapes) {
             if (shape.PlaceholderSettings.Type is PlaceholderType.Title) {
-                TextArea textArea = new TextArea();
-                textArea.Text = "Today’s Highlights";
-                shape.TextArea = textArea;
+                shape.TextArea = new TextArea("Today’s Highlights");
             }
             if (shape.PlaceholderSettings.Type is PlaceholderType.Object) {
                 TextArea textArea = new TextArea();
-                TextParagraph paragraph1 = new TextParagraph();
-                paragraph1.Runs.Add(new TextRun { Text = "5 successful builds" });
-                textArea.Paragraphs.Add(paragraph1);
-
-                TextParagraph paragraph2 = new TextParagraph();
-                paragraph2.Runs.Add(new TextRun { Text = "2 failed builds" });
-                textArea.Paragraphs.Add(paragraph2);
-
-                TextParagraph paragraph3 = new TextParagraph();
-                paragraph3.Runs.Add(new TextRun { Text = "12 new bugs reported" });
-                textArea.Paragraphs.Add(paragraph3);
-
-                TextParagraph paragraph4 = new TextParagraph();
-                paragraph4.Runs.Add(new TextRun { Text = "3 deployments" });
-                textArea.Paragraphs.Add(paragraph4);
-
-                TextParagraph paragraph5 = new TextParagraph();
-                paragraph5.Runs.Add(new TextRun { Text = "1 rollback" });
-                textArea.Paragraphs.Add(paragraph5);
+                textArea.Paragraphs.Clear();
+                textArea.Paragraphs.Add(new TextParagraph("5 successful builds"));
+                textArea.Paragraphs.Add(new TextParagraph("2 failed builds"));
+                textArea.Paragraphs.Add(new TextParagraph("12 new bugs reported"));
+                textArea.Paragraphs.Add(new TextParagraph("3 deployments"));
+                textArea.Paragraphs.Add(new TextParagraph("1 rollback"));
                 shape.TextArea = textArea;
             }
         }
@@ -64,14 +45,10 @@ public class Program {
         Slide slide3 = new Slide(slideMaster.Layouts.GetOrCreate(SlideLayoutType.Object));
         foreach (Shape shape in slide3.Shapes) {
             if (shape.PlaceholderSettings.Type is PlaceholderType.Title) {
-                TextArea textArea = new TextArea();
-                textArea.Text = "Build Status";
-                shape.TextArea = textArea;
+                shape.TextArea = new TextArea("Build Status");
             }
             if (shape.PlaceholderSettings.Type is PlaceholderType.Object) {
-                TextArea textArea = new TextArea();
-                textArea.Text = " ";
-                shape.TextArea = textArea;
+                shape.TextArea = new TextArea(" ");
                 string imagePath = @"..\..\..\data\table.png";
                 Stream stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
                 PictureFill fill = new PictureFill(DXImage.FromStream(stream));
