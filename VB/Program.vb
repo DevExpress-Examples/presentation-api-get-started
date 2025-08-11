@@ -1,6 +1,7 @@
 ﻿Imports DevExpress.Docs.Presentation
 Imports DevExpress.Drawing
 Imports System.Drawing
+Imports System.IO
 
 Namespace DxPresentationGetStarted
 
@@ -15,10 +16,10 @@ Namespace DxPresentationGetStarted
 
             Dim slide1 As Slide = New Slide(slideMaster.Layouts.Get(SlideLayoutType.Title))
             For Each shape As Shape In slide1.Shapes
-                If TypeOf shape.PlaceholderSettings.Type Is PlaceholderType.CenteredTitle Then
+                If shape.PlaceholderSettings.Type = PlaceholderType.CenteredTitle Then
                     shape.TextArea = New TextArea("Daily Testing Status Report")
                 End If
-                If TypeOf shape.PlaceholderSettings.Type Is PlaceholderType.Subtitle Then
+                If shape.PlaceholderSettings.Type = PlaceholderType.Subtitle Then
                     shape.TextArea = New TextArea($"{Date.Now: dddd, MMMM d, yyyy}")
                 End If
             Next
@@ -26,10 +27,10 @@ Namespace DxPresentationGetStarted
 
             Dim slide2 As Slide = New Slide(slideMaster.Layouts.GetOrCreate(SlideLayoutType.Object))
             For Each shape As Shape In slide2.Shapes
-                If TypeOf shape.PlaceholderSettings.Type Is PlaceholderType.Title Then
+                If shape.PlaceholderSettings.Type = PlaceholderType.Title Then
                     shape.TextArea = New TextArea("Today’s Highlights")
                 End If
-                If TypeOf shape.PlaceholderSettings.Type Is PlaceholderType.Object Then
+                If shape.PlaceholderSettings.Type = PlaceholderType.Object Then
                     Dim textArea As TextArea = New TextArea()
                     textArea.Paragraphs.Clear()
                     textArea.Paragraphs.Add(New TextParagraph("5 successful builds"))
@@ -44,16 +45,19 @@ Namespace DxPresentationGetStarted
 
             Dim slide3 As Slide = New Slide(slideMaster.Layouts.GetOrCreate(SlideLayoutType.Object))
             For Each shape As Shape In slide3.Shapes
-                If TypeOf shape.PlaceholderSettings.Type Is PlaceholderType.Title Then
+                If shape.PlaceholderSettings.Type = PlaceholderType.Title Then
                     shape.TextArea = New TextArea("Build Status")
                 End If
-                If TypeOf shape.PlaceholderSettings.Type Is PlaceholderType.Object Then
+                If shape.PlaceholderSettings.Type = PlaceholderType.Object Then
                     shape.TextArea = New TextArea(" ")
                     Dim imagePath = "..\..\..\data\table.png"
-                    Dim stream As Stream = New FileStream(imagePath, FileMode.Open, FileAccess.Read)
-                    Dim fill As PictureFill = New PictureFill(DXImage.FromStream(stream))
-                    fill.Stretch = True
-                    shape.Fill = fill
+
+                    Using stream As Stream = New FileStream(imagePath, FileMode.Open, FileAccess.Read)
+                        Dim fill As PictureFill = New PictureFill(DXImage.FromStream(stream))
+                        fill.Stretch = True
+                        shape.Fill = fill
+                    End Using
+
                 End If
             Next
             presentation.Slides.Add(slide3)
