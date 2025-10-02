@@ -30,7 +30,7 @@ Namespace DxPresentationGetStarted
                 If shape.PlaceholderSettings.Type = PlaceholderType.Title Then
                     shape.TextArea = New TextArea("Today’s Highlights")
                 End If
-                If shape.PlaceholderSettings.Type = PlaceholderType.Object Then
+                If shape.PlaceholderSettings.Type = PlaceholderType.Body Then
                     Dim textArea As TextArea = New TextArea()
                     textArea.Paragraphs.Clear()
                     textArea.Paragraphs.Add(New TextParagraph("5 successful builds"))
@@ -48,15 +48,14 @@ Namespace DxPresentationGetStarted
                 If shape.PlaceholderSettings.Type = PlaceholderType.Title Then
                     shape.TextArea = New TextArea("Build Status")
                 End If
-                If shape.PlaceholderSettings.Type = PlaceholderType.Object Then
+                If shape.PlaceholderSettings.Type = PlaceholderType.Body Then
                     shape.TextArea = New TextArea(" ")
                     Dim imagePath = "..\..\..\data\table.png"
 
-                    Using stream As Stream = New FileStream(imagePath, FileMode.Open, FileAccess.Read)
-                        Dim fill As PictureFill = New PictureFill(DXImage.FromStream(stream))
-                        fill.Stretch = True
-                        shape.Fill = fill
-                    End Using
+                    Dim stream As Stream = New FileStream(imagePath, FileMode.Open, FileAccess.Read)
+                    Dim fill As PictureFill = New PictureFill(DXImage.FromStream(stream))
+                    fill.Stretch = True
+                    shape.Fill = fill
 
                 End If
             Next

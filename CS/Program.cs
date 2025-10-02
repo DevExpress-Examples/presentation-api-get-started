@@ -29,7 +29,7 @@ public class Program {
             if (shape.PlaceholderSettings.Type is PlaceholderType.Title) {
                 shape.TextArea = new TextArea("Today’s Highlights");
             }
-            if (shape.PlaceholderSettings.Type is PlaceholderType.Object) {
+            if (shape.PlaceholderSettings.Type is PlaceholderType.Body) {
                 TextArea textArea = new TextArea();
                 textArea.Paragraphs.Clear();
                 textArea.Paragraphs.Add(new TextParagraph("5 successful builds"));
@@ -47,7 +47,7 @@ public class Program {
             if (shape.PlaceholderSettings.Type is PlaceholderType.Title) {
                 shape.TextArea = new TextArea("Build Status");
             }
-            if (shape.PlaceholderSettings.Type is PlaceholderType.Object) {
+            if (shape.PlaceholderSettings.Type is PlaceholderType.Body) {
                 shape.TextArea = new TextArea(" ");
                 string imagePath = @"..\..\..\data\table.png";
                 Stream stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
