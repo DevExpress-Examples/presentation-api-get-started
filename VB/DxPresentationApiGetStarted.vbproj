@@ -19,6 +19,6 @@
 	  <Import Include="System" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="DevExpress.Docs.Presentation" Version="25.2.2-beta" />
+		<PackageReference Include="DevExpress.Docs.Presentation" Version="25.2.3+" />
 	</ItemGroup>
 </Project>
