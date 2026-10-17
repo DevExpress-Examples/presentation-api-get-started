@@ -1,6 +1,7 @@
 ﻿using DevExpress.Docs.Presentation;
 using DevExpress.Drawing;
 using System.Drawing;
+using DevExpress.Docs.Office;
 
 namespace DxPresentationGetStarted;
 
@@ -11,15 +12,15 @@ public class Program {
         presentation.Slides.Clear();
 
         SlideMaster slideMaster = presentation.SlideMasters[0];
-        slideMaster.Background = new CustomSlideBackground(new SolidFill(Color.FromArgb(194, 228, 249)));
+        slideMaster.Background = new CustomSlideBackground(new DevExpress.Docs.Office.SolidFill(Color.FromArgb(194, 228, 249)));
 
         Slide slide1 = new Slide(slideMaster.Layouts.Get(SlideLayoutType.Title));
         foreach (Shape shape in slide1.Shapes) {
             if (shape.PlaceholderSettings.Type is PlaceholderType.CenteredTitle) {
-                shape.TextArea = new TextArea("Daily Testing Status Report");
+                shape.TextArea = new DevExpress.Docs.Office.TextArea("Daily Testing Status Report");
             }
             if (shape.PlaceholderSettings.Type is PlaceholderType.Subtitle) {
-                shape.TextArea = new TextArea($"{DateTime.Now: dddd, MMMM d, yyyy}");
+                shape.TextArea = new DevExpress.Docs.Office.TextArea($"{DateTime.Now: dddd, MMMM d, yyyy}");
             }
         }
         presentation.Slides.Add(slide1);
@@ -27,16 +28,16 @@ public class Program {
         Slide slide2 = new Slide(slideMaster.Layouts.GetOrCreate(SlideLayoutType.Object));
         foreach (Shape shape in slide2.Shapes) {
             if (shape.PlaceholderSettings.Type is PlaceholderType.Title) {
-                shape.TextArea = new TextArea("Today’s Highlights");
+                shape.TextArea = new DevExpress.Docs.Office.TextArea("Today’s Highlights");
             }
             if (shape.PlaceholderSettings.Type is PlaceholderType.Body) {
-                TextArea textArea = new TextArea();
+                DevExpress.Docs.Office.TextArea textArea = new DevExpress.Docs.Office.TextArea();
                 textArea.Paragraphs.Clear();
-                textArea.Paragraphs.Add(new TextParagraph("5 successful builds"));
-                textArea.Paragraphs.Add(new TextParagraph("2 failed builds"));
-                textArea.Paragraphs.Add(new TextParagraph("12 new bugs reported"));
-                textArea.Paragraphs.Add(new TextParagraph("3 deployments"));
-                textArea.Paragraphs.Add(new TextParagraph("1 rollback"));
+                textArea.Paragraphs.Add(new DevExpress.Docs.Office.TextParagraph("5 successful builds"));
+                textArea.Paragraphs.Add(new DevExpress.Docs.Office.TextParagraph("2 failed builds"));
+                textArea.Paragraphs.Add(new DevExpress.Docs.Office.TextParagraph("12 new bugs reported"));
+                textArea.Paragraphs.Add(new DevExpress.Docs.Office.TextParagraph("3 deployments"));
+                textArea.Paragraphs.Add(new DevExpress.Docs.Office.TextParagraph("1 rollback"));
                 shape.TextArea = textArea;
             }
         }
@@ -45,7 +46,7 @@ public class Program {
         Slide slide3 = new Slide(slideMaster.Layouts.GetOrCreate(SlideLayoutType.Object));
         foreach (Shape shape in slide3.Shapes.ToList()) {
             if (shape.PlaceholderSettings.Type is PlaceholderType.Title) {
-                shape.TextArea = new TextArea("Build Status");
+                shape.TextArea = new DevExpress.Docs.Office.TextArea("Build Status");
             }
             if (shape.PlaceholderSettings.Type is PlaceholderType.Body) {
 

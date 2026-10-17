@@ -1,7 +1,7 @@
 ﻿Imports System.Drawing
 Imports System.IO
 Imports DevExpress.Docs.Presentation
-
+Imports DevExpress.Docs.Office
 Namespace DxPresentationGetStarted
 
     Public Class Program
@@ -11,15 +11,15 @@ Namespace DxPresentationGetStarted
             presentation.Slides.Clear()
 
             Dim slideMaster = presentation.SlideMasters(0)
-            slideMaster.Background = New CustomSlideBackground(New SolidFill(Color.FromArgb(194, 228, 249)))
+            slideMaster.Background = New CustomSlideBackground(New DevExpress.Docs.Office.SolidFill(Color.FromArgb(194, 228, 249)))
 
             Dim slide1 As Slide = New Slide(slideMaster.Layouts.Get(SlideLayoutType.Title))
             For Each shape As Shape In slide1.Shapes
                 If shape.PlaceholderSettings.Type = PlaceholderType.CenteredTitle Then
-                    shape.TextArea = New TextArea("Daily Testing Status Report")
+                    shape.TextArea = New DevExpress.Docs.Office.TextArea("Daily Testing Status Report")
                 End If
                 If shape.PlaceholderSettings.Type = PlaceholderType.Subtitle Then
-                    shape.TextArea = New TextArea($"{Date.Now: dddd, MMMM d, yyyy}")
+                    shape.TextArea = New DevExpress.Docs.Office.TextArea($"{Date.Now: dddd, MMMM d, yyyy}")
                 End If
             Next
             presentation.Slides.Add(slide1)
@@ -27,16 +27,16 @@ Namespace DxPresentationGetStarted
             Dim slide2 As Slide = New Slide(slideMaster.Layouts.GetOrCreate(SlideLayoutType.Object))
             For Each shape As Shape In slide2.Shapes
                 If shape.PlaceholderSettings.Type = PlaceholderType.Title Then
-                    shape.TextArea = New TextArea("Today’s Highlights")
+                    shape.TextArea = New DevExpress.Docs.Office.TextArea("Today’s Highlights")
                 End If
                 If shape.PlaceholderSettings.Type = PlaceholderType.Body Then
-                    Dim textArea As TextArea = New TextArea()
+                    Dim textArea As DevExpress.Docs.Office.TextArea = New DevExpress.Docs.Office.TextArea()
                     textArea.Paragraphs.Clear()
-                    textArea.Paragraphs.Add(New TextParagraph("5 successful builds"))
-                    textArea.Paragraphs.Add(New TextParagraph("2 failed builds"))
-                    textArea.Paragraphs.Add(New TextParagraph("12 new bugs reported"))
-                    textArea.Paragraphs.Add(New TextParagraph("3 deployments"))
-                    textArea.Paragraphs.Add(New TextParagraph("1 rollback"))
+                    textArea.Paragraphs.Add(New DevExpress.Docs.Office.TextParagraph("5 successful builds"))
+                    textArea.Paragraphs.Add(New DevExpress.Docs.Office.TextParagraph("2 failed builds"))
+                    textArea.Paragraphs.Add(New DevExpress.Docs.Office.TextParagraph("12 new bugs reported"))
+                    textArea.Paragraphs.Add(New DevExpress.Docs.Office.TextParagraph("3 deployments"))
+                    textArea.Paragraphs.Add(New DevExpress.Docs.Office.TextParagraph("1 rollback"))
                     shape.TextArea = textArea
                 End If
             Next
@@ -45,7 +45,7 @@ Namespace DxPresentationGetStarted
             Dim slide3 As Slide = New Slide(slideMaster.Layouts.GetOrCreate(SlideLayoutType.Object))
             For Each shape As Shape In slide3.Shapes.ToList()
                 If shape.PlaceholderSettings.Type = PlaceholderType.Title Then
-                    shape.TextArea = New TextArea("Build Status")
+                    shape.TextArea = New DevExpress.Docs.Office.TextArea("Build Status")
                 End If
                 If shape.PlaceholderSettings.Type = PlaceholderType.Body Then
 
